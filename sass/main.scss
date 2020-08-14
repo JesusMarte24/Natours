@@ -12,6 +12,7 @@ $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485;
 $color-secondary: #777;
 $color-tertiary: #fff;
+$color-black: #000;
 
 *,
 *::after,
@@ -38,11 +39,9 @@ body {
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(
-      to right bottom,
+  background-image: linear-gradient(to right bottom,
       rgba($color-primary-light, 0.8),
-      rgba($color-primary-dark, 0.8)
-    ),
+      rgba($color-primary-dark, 0.8)),
     url(../img/hero.jpg);
   background-size: cover;
   position: relative;
@@ -50,24 +49,25 @@ body {
   background-position: top;
   /* En la funcion polygon se especifican los puntos en los ejes X Y en ese mismo orden */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-}
 
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-}
+  &__logo {
+    height: 3.5rem;
 
-.header__logo {
-  height: 3.5rem;
-}
+    &-box {
+      position: absolute;
+      top: 4rem;
+      left: 4rem;
+    }
+  }
 
-.header__tittle-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  &__tittle-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
 }
 
 .heading-primary {
@@ -75,26 +75,28 @@ body {
   text-transform: uppercase;
   /* backface-visibility: hidden; */
   margin-bottom: 6rem;
+
+  &-main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInRight;
+    animation-duration: 0.7s;
+    animation-timing-function: ease-in;
+  }
+
+  &-sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    /* Tambien se puede asignar la animacion de esta forma o sea en una sola linea */
+    animation: moveInLeft 0.7s ease-in;
+  }
+
 }
 
-.heading-primary-main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  animation-name: moveInRight;
-  animation-duration: 0.7s;
-  animation-timing-function: ease-in;
-}
-
-.heading-primary-sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  /* Tambien se puede asignar la animacion de esta forma o sea en una sola linea */
-  animation: moveInLeft 0.7s ease-in;
-}
 
 /* De esta manera se declara una animacion!, entre cada llave especificamos lo que pasara en cada % de la animacion*/
 
@@ -144,30 +146,35 @@ body {
   }
 }
 
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  display: inline-block;
-  border: 0.2rem solid transparent;
-  border-radius: 10rem;
-  transition: all 0.2s;
-  font-size: 1.6rem;
-}
+.btn {
 
-.btn:hover {
-  transform: translateY(-0.3rem);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border: 0.2rem solid transparent;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    font-size: 1.6rem;
+  }
 
-.btn:active {
-  transform: translateY(-0.1rem);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 
-.btn--white {
-  background-color: $color-tertiary;
-  color: $color-secondary;
-  animation: moveFromBottom 0.75s ease-out;
+  }
+
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-tertiary;
+    color: $color-secondary;
+    animation: moveFromBottom 0.75s ease-out;
+  }
+
 }
